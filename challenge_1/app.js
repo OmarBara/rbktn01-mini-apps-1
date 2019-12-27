@@ -1,4 +1,3 @@
-/*MVC frameworks help you separate and manage the concerns associated with user input, each category of behavior is grouped in one area */
 //-------------------Board----------------------------------------------//
 /* variables */
 var board = [
@@ -27,7 +26,6 @@ if(place === 'sisth')  {board[1][2]= player}
 if(place === 'seventh'){board[2][0]= player}
 if(place === 'eighth') {board[2][1]= player}
 if(place === 'ningth') {board[2][2]= player}
-
 }
 
 var findWin= function(){
@@ -49,9 +47,7 @@ var findWin= function(){
     colum1.push(board[i][0])
     colum2.push(board[i][1])
     colum3.push(board[i][2])
-
   }
-
   //main diagonal chek
   findMatch(mainDiag)
   //sub diagonal chek
@@ -65,20 +61,21 @@ var findWin= function(){
 //find one row that win
 var findMatch= function(row){
     //if player repeted 3 times
-    var winerAlert = document.getElementById('player')
     if(row.filter((i)=> i==='one').length === 3){
       //trigger winner 'one'
-      console.log('you have winner: player one')
-      winerAlert.innerHTML = "player one win this match: "
+      winnerAlert('one')
+      console.log('one winnnnn')
     }
-    if(row.filter((i)=> i==='two').length === 3){
+    else if(row.filter((i)=> i==='two').length === 3){
       //trigger winner 'two'
-      console.log('you have winner: player two')
-      winerAlert.innerHTML = "player two win this match: "
-      //winnerAlert(i)
+      winnerAlert('two')
+      console.log('two winnnnn')
     }
   }
-
+var winnerAlert= function(player) {
+  var winerAlert = document.getElementById('player')
+  winerAlert.innerHTML = "player "+ player +" win this match"
+}
 
 var reset= function(){
   var board = [
@@ -118,10 +115,7 @@ var handler = (place)=>{
       findWin()
     }
   }
-  //chek if player got score
-  //chek if any pressed and save it in bord
   console.log('------------------------')
-
 }
 
 //event Listener for all
@@ -129,5 +123,5 @@ var all = document.getElementById('board')
 if(all){
   all.addEventListener('click', function(event){
     handler(event.target.id)
-})
+  })
 }
