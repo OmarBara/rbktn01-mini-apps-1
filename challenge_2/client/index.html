@@ -2,10 +2,10 @@
 <html>
   <head> <script src="https://code.jquery.com/jquery-3.4.1.js"
     integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script> </head>
+    crossorigin="anonymous"></script>
+  </head>
   <body>
     <p>this is HTML Page</p>
-
 <div>
     <form method="POST" action="/" id="myform">
       put it all here<textarea  name = "data"></textarea>
@@ -18,15 +18,12 @@
   <td></td>
 </table>
 
-
-
   <script type='text/javascript'>
     $("#myform").submit(function(event){
-	event.preventDefault();
-  // $('button').click(function(){
-
+	  event.preventDefault();
+    // $('button').click(function(){
     // var jax = function(){
-      console.log('ajax rtrigerd')
+    console.log('ajax rtrigerd')
     // preventDefault();
     $.ajax({
     type: "POST",
@@ -37,9 +34,10 @@
     },
     dataType: "json",
     contentType : "application/json"
-  });
-  }</script>
+  })
+  })
+  </script>
     <script src="app.js" ></script>
-    <script src="../server.js" ></script>
+    <!-- <script src="../server.js" ></script> -->
   </body>
 </html>

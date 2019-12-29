@@ -1,17 +1,19 @@
 const express = require('express')
 const app = express()
-var path = require('path');
-var bodyParser = require("body-parser");
+const path = require('path');
+const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 const port = 3000
 const ObjectsToCsv = require('objects-to-csv');
-var createJson = require('./client/app')
+app.use(express.static(__dirname + '/client'))
 
-//createJson('jasonwas create')
+//get defult page
 app.get('/',function(req,res) {
   res.sendFile(path.join(__dirname + '/client/index.html'));
 });
+
+
 app.post('/',function(req,res) {
   // console.log(JSON.stringify(req.body))
   var recived = req.body

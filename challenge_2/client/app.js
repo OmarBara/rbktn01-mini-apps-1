@@ -1,8 +1,9 @@
-const server = require('../server.js')
+// const server = require('../server.js')
+// const html = require('index.html')
 console.log('app')
 // var jquery = require("jquery")
-var $ = require("jquery")
-
+// var $ = require("jquery")
+$('p').append('<h>hello</h>')
 var createJson = function(e) {
   // console.log(e)
   // e.preventDefault();
