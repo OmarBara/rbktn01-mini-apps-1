@@ -16,8 +16,8 @@ app.get('/',function(req,res) {
 
 app.post('/',function(req,res) {
   // console.log(JSON.stringify(req.body))
-  var recived = req.body
-  console.log(recived,'recicedd')
+  var recived = req.body[0].value
+  // console.log(recived,'recicedd')
 
   function jsonParser(msg) {
     var results = [];
@@ -36,14 +36,14 @@ app.post('/',function(req,res) {
     return results
   }
   console.log('------------------------first')
-  // var parsedRecs = JSON.parse(recived)
+  var parsedRecived = JSON.parse(recived)
   // console.log(parsedRecs)
   // console.log('------------------------////////////////////')
-  // console.log(JSON.parse(recived), 'parese')
+  console.log(JSON.parse(recived), 'parese')
   // console.log(JSON.stringify(recived),'stringyfy')
-
+var pars = jsonParser(parsedRecived)
   // res.send(JSON.stringify(recived))
-  // res.send(jsonParser(parsedRecs))
+  res.send({pars:pars})
   // res.end(201)
 });
 app.listen(port, () => console.log(`app listening on port ${port}!`))

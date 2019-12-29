@@ -5,39 +5,19 @@
     crossorigin="anonymous"></script>
   </head>
   <body>
-    <p>this is HTML Page</p>
+    <h1>this is HTML Page</h1>
 <div>
-    <form method="POST" action="/" id="myform">
+    <form method="POST" action="/post" id="myform">
       put it all here<textarea  name = "data"></textarea>
       <input type="submit" name="submit"/>
     </form>
 </div>
 
-<table>
+<table id="table">
   <th></th>
   <td></td>
 </table>
-
-  <script type='text/javascript'>
-    $("#myform").submit(function(event){
-	  event.preventDefault();
-    // $('button').click(function(){
-    // var jax = function(){
-    console.log('ajax rtrigerd')
-    // preventDefault();
-    $.ajax({
-    type: "POST",
-    url: "/",
-    data: {dataz:"i did"},
-    success: function(){
-      console.log('Ajax was sent')
-    },
-    dataType: "json",
-    contentType : "application/json"
-  })
-  })
-  </script>
+<p></p>
     <script src="app.js" ></script>
-    <!-- <script src="../server.js" ></script> -->
   </body>
 </html>
