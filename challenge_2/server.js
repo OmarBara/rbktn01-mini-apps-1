@@ -6,15 +6,16 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 const port = 3000
 const ObjectsToCsv = require('objects-to-csv');
+var createJson = require('./client/app')
 
-
+//createJson('jasonwas create')
 app.get('/',function(req,res) {
   res.sendFile(path.join(__dirname + '/client/index.html'));
 });
 app.post('/',function(req,res) {
   // console.log(JSON.stringify(req.body))
-  var recived = req.body.data
-  console.log(recived)
+  var recived = req.body
+  console.log(recived,'recicedd')
 
   function jsonParser(msg) {
     var results = [];
@@ -33,13 +34,15 @@ app.post('/',function(req,res) {
     return results
   }
   console.log('------------------------first')
-  var paesedRecived = JSON.parse(recived)
-  console.log(paesedRecived)
-  console.log('------------------------////////////////////')
-  // console.log(JSON.parse(jsonParser(recived)))
+  // var parsedRecs = JSON.parse(recived)
+  // console.log(parsedRecs)
+  // console.log('------------------------////////////////////')
+  // console.log(JSON.parse(recived), 'parese')
+  // console.log(JSON.stringify(recived),'stringyfy')
 
-  // res.send(JSON.parse(jsonParser(recived)))
-  res.send(jsonParser(paesedRecived))
+  // res.send(JSON.stringify(recived))
+  // res.send(jsonParser(parsedRecs))
+  // res.end(201)
 });
 app.listen(port, () => console.log(`app listening on port ${port}!`))
 

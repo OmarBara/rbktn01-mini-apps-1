@@ -1,28 +1,13 @@
 const server = require('../server.js')
 console.log('app')
-
-// function jsonParser(jsonObj) {
-// 	var results = [];
-// 	for (var key in jsonObj) {
-// 		if (!Array.isArray(jsonObj[key])) {
-// 			results.push(jsonObj[key]);
-// 		}
-// 	}
-// 	if (jsonObj.children) {
-// 		for (var i = 0; i < jsonObj.children.length; i++) {
-// 			var childResult = jsonParser(jsonObj.children[i]);
-// 			results = results.concat(childResult);
-// 		}
-// 	}
-//   results = 'firstName,lastName,county,city,role,sales \n'+results.join(',');
-//   return results
-// }
+// var jquery = require("jquery")
+var $ = require("jquery")
 
 var createJson = function(e) {
-  e.preventDefault();
+  // console.log(e)
+  // e.preventDefault();
   console.log('createJson----------- ')
   var formData = JSON.stringify($("#myform").serializeArray());
-
 
   $.ajax({
     type: "POST",
@@ -35,3 +20,4 @@ var createJson = function(e) {
     contentType : "application/json"
   });
 }
+module.exports = createJson
