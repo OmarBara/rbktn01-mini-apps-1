@@ -24,14 +24,3 @@ $("#myform").submit(function(event){
 var appednJson =function(data) {
   $('p').append(`<p>${data}</p>`)
 }
-
-// $.ajax({
-//   url: '/post',
-//   type: 'GET',
-//   data: { order: '-createdAt' },
-//   contentType: 'application/json',
-//   success: alert('recived'),
-//   error: function(error) {
-//     console.error('chatterbox: Failed to fetch messages', error);
-//   }
-// })
